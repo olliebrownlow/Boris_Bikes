@@ -3,7 +3,6 @@ require 'docking_station'
 # In spec/docking_station_spec.rb
 describe DockingStation do
 
-
   it 'responds to #release_bike'  do  #=>method
   	#creating an instance of DockingStation
   	station = DockingStation.new
@@ -46,7 +45,7 @@ describe DockingStation do
     end
 
     it 'raises an error if the docking station is at full capacity' do
-      20.times {subject.dock(Bike.new)}
+      DockingStation::DEFAULT_CAPACITY.times {subject.dock(Bike.new)}
       expect {subject.dock(Bike.new)}.to raise_error("Docking station full!")
     end
   end
